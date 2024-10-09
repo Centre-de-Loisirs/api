@@ -5,11 +5,12 @@ plugins {
     kotlin("jvm") version "2.0.20"
     kotlin("plugin.allopen") version "2.0.20"
     kotlin("plugin.serialization") version "2.0.20"
-    id("io.quarkus")
+    id("io.quarkus") version "3.15.1"
 }
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
     mavenLocal()
 }
 
@@ -18,7 +19,7 @@ val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
 dependencies {
-    implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.15.1"))
     implementation("io.quarkus:quarkus-rest")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-config-yaml")
